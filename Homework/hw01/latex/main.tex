@@ -1,0 +1,77 @@
+\documentclass[a4paper,12pt,twoside]{article}
+
+\usepackage{preamble}
+
+\title{Homework 01}
+\author{Brandon Henke\\PHY831\\Scott Bogner}
+\date{September 17, 2021}
+
+\setcounter{section}{1}
+
+\fancyhead[LE,RO]{B. Henke}
+\fancyhead[RE,LO]{\thepage}
+
+\begin{document}
+%\tableofcontents
+
+\maketitle
+\begin{multicols*}{2}
+
+
+\subsection{}%1
+\subsubsection*{a}
+From the first law,
+\begin{equation}
+	\dd{Q} = \dd{E} - \dd{W}.
+\end{equation}
+Hence,
+\begin{align}
+	Q_h &= \int E\dd{\Theta} + \int P \dd{V},\\
+	&= \int \frac{Nk_B\Theta_h}{V}\dd{V},\\
+	&= Nk_B\Theta_h \ln(\frac{V_2}{V_1}).\\
+	Q_c &= Nk_B\Theta_h \ln(\frac{V_4}{V_3}).
+\end{align}
+\subsubsection*{b}
+From the first law,
+\begin{align}
+	\dd{E} &= -P\dd{V},\\
+	\pdv{E}{\Theta}\dd{\Theta} &= -P\dd{V}.
+	\label{eq: 1b first law}
+\end{align}
+Assuming an ideal gas,
+\begin{equation}
+	\Theta = \frac{PV}{Nk_B},
+\end{equation}
+so,
+\begin{equation}
+	\dd{\Theta} = \frac{1}{Nk_B}\left( P\dd{V}+V\dd{P} \right).
+\end{equation}
+Plugging this into \ref{eq: 1b first law} gives
+\begin{equation}
+	\left( Nk_B\pdv{\Theta}{E}+1 \right) \frac{\dd{V}}{V}+\frac{\dd{P}}{P} = 0.
+\end{equation}
+Integrating gives
+\begin{align}
+	&\ln(\frac{V_3}{V_2}\frac{P_3}{P_2}) + Nk_B \int \pdv{\Theta}{E} \frac{\dd{V}}{V} = 0,\\
+	&\ln(\frac{\Theta_3}{\Theta_2}) + Nk_B \int \pdv{\Theta}{E} \frac{\dd{V}}{V} = 0.
+\end{align}
+\subsubsection*{c}
+\subsection{}%2
+\subsubsection*{a}
+\subsubsection*{b}
+\subsubsection*{c}
+\subsection{}%3
+\subsection{}%4
+\subsubsection*{a}
+\subsubsection*{b}
+\subsubsection*{c}
+\subsubsection*{d}
+\subsubsection*{e}
+
+
+\nocite{*}
+\printbibliography[title={References},heading=bibnumbered]
+
+
+\end{multicols*}
+\end{document}
