@@ -22,52 +22,145 @@
 \subsubsection*{a}
 From the first law,
 \begin{equation}
-	\dd{Q} = \dd{E} - \dd{W}.
+	dQ = \dd{E} - dW.
 \end{equation}
 Hence,
 \begin{align}
-	Q_h &= \int E\dd{\Theta} + \int P \dd{V},\\
+	Q_h &= \int \left( \pdv{E}{\Theta} \dd{\Theta} +  P \dd{V}\right),\\
 	&= \int \frac{Nk_B\Theta_h}{V}\dd{V},\\
-	&= Nk_B\Theta_h \ln(\frac{V_2}{V_1}).\\
-	Q_c &= Nk_B\Theta_h \ln(\frac{V_4}{V_3}).
+	&= Nk_B\Theta_h \ln(\frac{V_2}{V_1}).
+	\label{eq: 1a Q_h}\\
+	Q_c &= Nk_B\Theta_c \ln(\frac{V_3}{V_4}).
+	\label{eq: 1a Q_c}
 \end{align}
+For \ref{eq: 1a Q_c}, heat is being expelled, hence the minus sign (evident in swapping the bounds of integration).
 \subsubsection*{b}
 From the first law,
 \begin{align}
 	\dd{E} &= -P\dd{V},\\
 	\pdv{E}{\Theta}\dd{\Theta} &= -P\dd{V}.
-	\label{eq: 1b first law}
+	\label{eq: 1b_first_law}
 \end{align}
 Assuming an ideal gas,
 \begin{equation}
-	\Theta = \frac{PV}{Nk_B},
+	P = \frac{Nk_B \Theta}{V}.
 \end{equation}
-so,
+Plugging this into \ref{eq: 1b_first_law} gives
 \begin{equation}
-	\dd{\Theta} = \frac{1}{Nk_B}\left( P\dd{V}+V\dd{P} \right).
+	\frac{1}{\Theta} \pdv{E}{\Theta} \dd{\Theta} = -Nk_B \frac{\dd{V}}{V}.
 \end{equation}
-Plugging this into \ref{eq: 1b first law} gives
+Integrating both sides from $(V_0,\Theta_0)$ to $(V,\Theta)$ gives
 \begin{equation}
-	\left( Nk_B\pdv{\Theta}{E}+1 \right) \frac{\dd{V}}{V}+\frac{\dd{P}}{P} = 0.
+	\int_{\Theta_0}^\Theta \frac{1}{\tau} \left.\pdv{E}{\Theta}\right|_\tau \dd{\tau} = -Nk_B \ln(\frac{V}{V_0}),
 \end{equation}
-Integrating gives
-\begin{align}
-	&\ln(\frac{V_3}{V_2}\frac{P_3}{P_2}) + Nk_B \int \pdv{\Theta}{E} \frac{\dd{V}}{V} = 0,\\
-	&\ln(\frac{\Theta_3}{\Theta_2}) + Nk_B \int \pdv{\Theta}{E} \frac{\dd{V}}{V} = 0.
-\end{align}
+or
+\begin{equation}
+	\frac{V}{V_0} = e^{-\frac{1}{Nk_B}\int_{\Theta_0}^\Theta \frac{1}{\tau} \left.\pdv{E}{\Theta}\right|_\tau \dd{\tau}}.
+	\label{eq: 1b_answer}
+\end{equation}
+
 \subsubsection*{c}
+By definition,
+\begin{equation}
+	\eta \equiv \frac{W}{Q_h} = \frac{Q_h-Q_c}{Q_h} = 1-\frac{Q_c}{Q_h}.
+\end{equation}
+From equations \ref{eq: 1a Q_h} and \ref{eq: 1a Q_c},
+\begin{equation}
+	1-\frac{Q_c}{Q_h} = 1-\frac{\Theta_c \ln(V_3/V_4)}{\Theta_h \ln(V_2/V_1)}
+\end{equation}
+Additionally, from \ref{eq: 1b_answer}, $\ln(V_2/V_1) = \ln(V_3/V_4)$.
+Thus
+\begin{equation}
+	\eta = 1- \frac{\Theta_c}{\Theta_h}.
+\end{equation}
+
 \subsection{}%2
 \subsubsection*{a}
+Take the first law:
+\begin{equation}
+	dQ = \dd{E} - dW.
+\end{equation}
+If one uses $(T,V)$ as the independent variables, then
+\begin{align}
+	dQ &= \pdv{E}{T} \dd{T} + \left( \pdv{E}{V} + P \right) \dd{V},\\
+	&= C_V\dd{T} + \left( \pdv{E}{V} + P \right) \dd{V}.
+\end{align}
 \subsubsection*{b}
+Finding an expression for $\dd{S}$, if follows from the second law that
+\begin{align}
+	\dd{S} &= \frac{dQ}{T},\\
+	&= \frac{C_V}{T}\dd{T} + \left( \frac{1}{T}\pdv{E}{V} + \frac{P}{T} \right) \dd{V}.
+\end{align}
+By definition of an exact differential,
+\begin{align}
+	\pdv{S}{V} &= \frac{1}{T}\pdv{E}{V} + \frac{P}{T},\\
+	\pdv{S}{T} &= \frac{C_V}{T}.
+\end{align}
+Additionally
+\begin{equation}
+	\pdv{S}{V}{T} = \pdv{S}{T}{V},
+\end{equation}
+so
+\begin{align}
+	\pdv{V} \frac{C_V}{T} &= \pdv{T}(\frac{1}{T}\pdv{E}{V} + \frac{P}{T}),\\
+	0 &= -\frac{1}{T^2}\pdv{E}{V} - \frac{P}{T^2} + \frac{1}{T}\pdv{P}{T},\\
+	&= \pdv{E}{V} + P - T\pdv{P}{T},\\
+	\pdv{E}{V} &= T\pdv{P}{T} - P.
+\end{align}
+
 \subsubsection*{c}
+For an ideal gas,
+\begin{equation}
+	\pdv{E}{V} = \frac{Nk_BT}{V} - P = 0.
+\end{equation}
+Thus the internal energy cannot depend on $V$, and is only a function of $T$.
+However, since no consideration was made pertaining to the particle number, $N$, the internal energy could still depend on $N$.
+Therefore $E = E(T,N)$.
 \subsection{}%3
+From the first law,
+\begin{equation}
+	\dd{E} = -P\dd{V} - S\dd{T} + \mu \dd{N},
+\end{equation}
+where
+\begin{align}
+	P   &\equiv -\pdv{E}{V},\\
+	S   &\equiv -\pdv{E}{T},\\
+	\mu &\equiv  \pdv{E}{N}.
+\end{align}
+The Maxwell relations mentioned are derived as follows:
+\begin{align}
+	\pdv{\mu}{T} &= \pdv{E}{T}{N} = -\pdv{S}{N}.\\
+	\pdv{S}{V} &= -\pdv{E}{T}{V} = \pdv{P}{T}.
+\end{align}
+Inverting these gives the requested relations:
+\begin{align}
+	\pdv{T}{\mu} &= -\pdv{N}{S},\\
+	\pdv{P}{T} &=\pdv{S}{V}.
+\end{align}
 \subsection{}%4
 \subsubsection*{a}
+The Helmholtz Free Energy is given by
+\begin{equation}
+	A = T_0 \ln(\frac{V}{V_0}) - T \frac{V}{V_0}\left( \frac{T}{T_0} \right)^a.
+\end{equation}
 \subsubsection*{b}
-\subsubsection*{c}
-\subsubsection*{d}
-\subsubsection*{e}
+The equation of state is found by using the Maxwell relation
+\begin{equation}
+	-P = \pdv{A}{V} = \frac{T_0}{V} - \frac{T}{V_0}\left( \frac{T}{T_0} \right)^a.
+\end{equation}
+This can be rewritten more simply as
+\begin{equation}
+	PV = ST-T_0.
+	\label{eq: 4b_answer}
+\end{equation}
 
+\subsubsection*{c}
+From \ref{eq: 4b_answer},
+\begin{align}
+	W &= -\int_{V_a}^{V_b} P \dd{V},\\
+	&= \int_{V_a}^{V_b} \frac{T_0}{V} - \frac{T_a}{V_0}\left( \frac{T_a}{T_0} \right)^a \dd{V},\\
+	&= T_0\ln(\frac{V_b}{V_a}) - \frac{(V_b-V_a)T_a}{V_0}\left( \frac{T_a}{T_0} \right)^a
+\end{align}
 
 \nocite{*}
 \printbibliography[title={References},heading=bibnumbered]
