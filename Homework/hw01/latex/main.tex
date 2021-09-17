@@ -140,26 +140,26 @@ Inverting these gives the requested relations:
 \subsection{}%4
 \subsubsection*{a}
 The Helmholtz Free Energy is given by
-\begin{equation}
-	A = T_0 \ln(\frac{V}{V_0}) - T \frac{V}{V_0}\left( \frac{T}{T_0} \right)^a.
-\end{equation}
+\begin{align}
+	A-A_0 &= T_0 \ln(\frac{V}{V_0}) \nonumber \\
+	&-\frac{1}{a+1} \frac{V}{V_0}\left( \frac{T^{a+1}}{T_0^{a}} - T_0 \right).
+\end{align}
 \subsubsection*{b}
 The equation of state is found by using the Maxwell relation
-\begin{equation}
-	-P = \pdv{A}{V} = \frac{T_0}{V} - \frac{T}{V_0}\left( \frac{T}{T_0} \right)^a.
-\end{equation}
-This can be rewritten more simply as
-\begin{equation}
-	PV = ST-T_0.
+\begin{align}
+	-P &= \pdv{A}{V},\\
+	&= \frac{T_0}{V} - \frac{1}{a+1} \frac{1}{V_0}\left( \frac{T^{a+1}}{T_0^{a}} - T_0 \right).
 	\label{eq: 4b_answer}
-\end{equation}
+\end{align}
 
 \subsubsection*{c}
 From \ref{eq: 4b_answer},
 \begin{align}
 	W &= -\int_{V_a}^{V_b} P \dd{V},\\
-	&= \int_{V_a}^{V_b} \frac{T_0}{V} - \frac{T_a}{V_0}\left( \frac{T_a}{T_0} \right)^a \dd{V},\\
-	&= T_0\ln(\frac{V_b}{V_a}) - \frac{(V_b-V_a)T_a}{V_0}\left( \frac{T_a}{T_0} \right)^a
+	&= \int_{V_a}^{V_b} \frac{T_0}{V}\dd{V} \nonumber\\
+	&- \int_{V_a}^{V_b}\frac{1}{a+1} \frac{1}{V_0}\left( \frac{T_a^{a+1}}{T_0^{a}} - T_0 \right) \dd{V},\\
+	&= T_0\ln(\frac{V_b}{V_a}) \nonumber \\
+	&- \frac{1}{a+1}\frac{(V_b-V_a)T_a}{V_0}\left( \frac{T_a^{a+1}}{T_0^{a}} - T_0 \right).
 \end{align}
 
 \nocite{*}
