@@ -1,0 +1,72 @@
+\documentclass[a4paper,12pt,twoside]{article}
+
+\immediate\write18{echo -n "\\newcommand{\\gitroot}{" > gitroot.txt && git rev-parse --show-toplevel >> gitroot.txt && truncate -s-1 gitroot.txt && echo -n "}" >> gitroot.txt}
+
+\input{gitroot.txt}
+\usepackage{\gitroot/latexTemplate/preamble}
+
+
+\newcommand{\Author}{Brandon Henke}
+\newcommand{\course}{\textit{PHY831}}
+\newcommand{\professor}{\textit{Scott Bogner}}
+
+\newcommand{\mcols}{0}
+
+
+\title{Homework 04}
+\author{
+	Brandon Henke\\
+	\course\\
+	\professor
+}
+\date{Ottobre 15, 2021}
+
+
+\fancyhead[LE,RO]{B. Henke}
+\fancyhead[RE,LO]{\thepage}
+
+\bibSetup{refs.bib}
+
+\begin{document}
+%\tableofcontents
+
+\maketitle
+\if\mcols1
+\begin{multicols*}{2}
+\fi
+
+\setcounter{section}{4}
+\subsection{}%1
+\subsubsection{}
+\begin{align}
+	\mathcal{E}_{max} \leq &\mathcal{S} \leq \mathcal{N} \mathcal{E}_{max},\\
+	\frac{1}{N}\log(\mathcal{E}_{max}) \leq \frac{1}{N}&\log(\mathcal{S}) \leq \frac{1}{N}\log(\mathcal{N} \mathcal{E}_{max}),\\
+	\varphi_{max} \leq \frac{1}{N}&\log(\mathcal{S}) \leq \frac{1}{N}\log(\mathcal{N}) + \varphi_{max}.
+\end{align}
+\subsubsection{}
+In the limit as $N\rightarrow\infty$,
+\begin{align}
+	\lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{S}) &=
+\end{align}
+\subsection{}%2
+\subsection{}%3
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+\subsection{}%4
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+\subsection{}%5
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+
+
+\printBib
+
+
+\if\mcols1
+\end{multicols*}
+\fi
+\end{document}
