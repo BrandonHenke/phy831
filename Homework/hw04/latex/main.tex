@@ -44,9 +44,20 @@
 	\varphi_{max} \leq \frac{1}{N}&\log(\mathcal{S}) \leq \frac{1}{N}\log(\mathcal{N}) + \varphi_{max}.
 \end{align}
 \subsubsection{}
-In the limit as $N\rightarrow\infty$,
+In the limit as $N\rightarrow\infty$, $\mathcal{N} \rightarrow N^p$.
+Hence
+\begin{equation}
+	\lim_{N\rightarrow \infty} \frac{1}{N} \log(N^p) = \lim_{N\rightarrow \infty} \frac{p}{N} \log(N) = 0.
+\end{equation}
+Therefore,
 \begin{align}
-	\lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{S}) &=
+	\lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{S}) \rightarrow &\varphi_{max}
+	\leq \lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{S})
+	\leq \varphi_{max}+ \lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{N}),\\
+	&\varphi_{max}
+	\leq \lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{S})
+	\leq \varphi_{max},\\
+	&\lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{S}) = \varphi_{max}.
 \end{align}
 \subsection{}%2
 \subsection{}%3
