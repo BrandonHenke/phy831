@@ -60,10 +60,63 @@ Therefore,
 	&\lim_{N\rightarrow\infty} \frac{1}{N}\log(\mathcal{S}) = \varphi_{max}.
 \end{align}
 \subsection{}%2
-Good morning
+\begin{align}
+	\dv{p_i}{t} &= \sum_{j} \omega_{ij}(p_j-p_i).\\
+	S &= -\sum_{i} p_i\log(p_i),\\
+	\dv{S}{t} &= -\sum_{i}\dv{p_i}{t}\log(p_i) - \dv{t}(\sum_{i}p_i),\\
+	&= -\sum_{i}\dv{p_i}{t}\log(p_i),\\
+	&= \sum_{i,j} \omega_{ij}(p_i-p_j)\log(p_i).
+\end{align}
+If $p_i = p_j$, $\dv*{S}{t} = 0$.
+Thus,
+\begin{align}
+	\dv{S}{t} &= \sum_{i,j} \omega_{ij}\frac{1}{2}\left((p_i-p_j)\log(p_i)-(p_i-p_j)\log(p_j)\right),\\
+	&= \sum_{i,j} \frac{\omega_{ij}}{2}(p_i-p_j)\log(\frac{p_i}{p_j}).
+\end{align}
+If $p_i > p_j$, then $(p_i-p_j) > 0$ and $\log(\frac{p_i}{p_j}) > 0$.
+Lastly, if $p_j > p_i$, then $(p_i-p_j) < 0$ and $\log(\frac{p_i}{p_j}) < 0$, so their product is positive.
+Therefore,
+\begin{equation}
+	\dv{S}{t} \geq 0.
+\end{equation}
 \subsection{}%3
 \subsubsection{}
+\begin{align}
+\mathcal{Q}(T,\mu,V) &= \sum_{N=0}^\infty e^{\beta \mu N} \frac{1}{N!} \int \left(\prod_{n=1}^N \frac{\dd[3]{\vb{q}_n}\dd[3]{\vb{p}_n}}{(2\pi \hbar)^3}\right) e^{-\beta \sum_{n=1}^N \frac{p_n^2}{2m}},\\
+&= \sum_{N=0}^\infty e^{\beta \mu N} \frac{V^N}{N!(2\pi \hbar)^{3N}} \left(\int \dd[3]{\vb{p}} e^{-\beta \frac{p^2}{2m}}\right)^N,\\
+&= \sum_{N=0}^\infty e^{\beta \mu N} \frac{V^N}{N!} \left(\frac{m}{2\pi \hbar^2 \beta}\right)^{3N/2}.
+\end{align}
+Let
+\begin{equation}
+	l_Q = \sqrt{\frac{2\pi \hbar^2 \beta}{m}}.
+\end{equation}
+Then
+\begin{equation}
+	\mathcal{Q}(T,\mu,V) = \sum_{N=0}^\infty  \frac{e^{\beta \mu N}}{N!} \frac{V^N}{l_Q^{3N}} = \sum_{N=0}^\infty  \frac{z^N}{N!} \frac{V^N}{l_Q^{3N}} = e^{z V / l_Q^3}.
+\end{equation}
 \subsubsection{}
+\begin{equation}
+	e^{-\beta \mathcal{G}} = \mathcal{Q}.
+\end{equation}
+Solving for $\mathcal{G}$ gives
+\begin{equation}
+	\mathcal{G}(T,\mu,V) = -\frac{1}{\beta} \log(\mathcal{Q}) = -\frac{e^{\beta \mu}V}{\beta l_Q^3}.
+\end{equation}
+By definition of pressure,
+\begin{align}
+	P &= -\pdv{\mathcal{G}}{V},\\
+	&= \frac{e^{\beta \mu}}{\beta l_Q^3}.
+\end{align}
+Additionally,
+\begin{align}
+	N &= - \pdv{\mathcal{G}}{\mu},\\
+	&= \frac{e^{\beta \mu}V}{l_Q^3}.
+\end{align}
+Hence
+\begin{align}
+	PV &= \frac{e^{\beta \mu}}{\beta l_Q^3}\frac{l_Q^3 N}{e^{\beta \mu}},\\
+	PV &= \frac{N}{\beta}. \qquad\checkmark
+\end{align}
 \subsubsection{}
 \subsection{}%4
 \subsubsection{}
