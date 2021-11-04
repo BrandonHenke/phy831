@@ -34,9 +34,80 @@
 \if\mcols1
 \begin{multicols*}{2}
 \fi
+\setcounter{section}{3}
+\subsection{}
+\subsubsection{}
+For some polymer of length $l = 2\abs{s}\rho$, there are $N_+$ lengths going right and $N_-$ lengths going left, such that $N_+ - N_- = s$.
+This is the same problem as the paramagnet problem, where the length of the chain is taking the place of the energy ($U=-2Bs$).
+However, in the case of the polymer the length is the same in both the $\pm s$ cases.
+Hence
+\begin{equation}
+	\Omega = \Omega(N,s)+\Omega(N,-s) = 2\Omega(N,s) = \frac{2N!}{(N/2+s)!(N/2-s)!}.
+\end{equation}
+\subsubsection{}
+The entropy, $S$, is given by
+\begin{align}
+	S =& \log(\Omega),\\
+	=& \log(2N!) - \log(N/2+s)! - \log(N/2-s)!.
+\end{align}
+Using Stirling's approximation on each term gives
+\begin{align}
+	\log(2N!) \approx& \log{2} + N\log{N} - N.\\
+	\log(N/2+s)! \approx& (N/2+s)\log(N/2+s) - \frac{N}{2}-s.\\
+	\log(N/2+s)! \approx& (N/2-s)\log(N/2-s) - \frac{N}{2}+s.\\
+\end{align}
+Thus, the entropy can be approximated as
+\begin{align}
+	S \approx& \log{2} + N\log{N} - N\nonumber\\
+	&- (N/2+s)\log(N/2+s) + \frac{N}{2}-s\nonumber\\
+	&- (N/2-s)\log(N/2-s) + \frac{N}{2}-s,\\
+	=& \log{2} + N\log{N} - 2s - (N/2+s)\log(N/2+s)\nonumber\\
+	&- (N/2-s)\log(N/2-s).
+\end{align}
+If $\abs{s} \ll N$, then (problem wants an $\abs{s}^2$ term, expand to an $s^2$ term):
+\begin{align}
+	(N/2+s)\log(N/2+s) \approx& \frac{N}{2}\log(N/2)+s\log(N/2)+s+\frac{s^2}{N},\\
+	(N/2-s)\log(N/2-s) \approx& \frac{N}{2}\log(N/2)-s\log(N/2)-s+\frac{s^2}{N}.
+\end{align}
+Plugging these into the expression for the entropy gives
+\begin{align}
+	S \approx& \log{2} + N\log{N} - N\log(N/2) - \frac{2s^2}{N},\\
+	=& \log(2\Omega(N,0)) - \frac{l^2}{2N\rho^2}.
+\end{align}
 
-\section{Test}
+\subsubsection{}
+The force for a given length $\ell$ is given by
+\begin{align}
+	f(\ell) =& -T\eval{\pdv{S}{l}}_\ell,\\
+	=& \frac{T\ell}{N\rho^2}.
+\end{align}
 
+\subsection{}
+\subsubsection{}
+The partition function, by definition, for one oscillator is given by
+\begin{equation}
+	Z_1 = \sum_m e^{-\beta \epsilon_m} = \sum_m e^{-\beta m\hbar \omega}.
+\end{equation}
+This is a geometric series, so
+\begin{equation}
+	Z_1 = \frac{1}{1-e^{-\beta \hbar \omega}}.
+\end{equation}
+The average energy is given by
+\begin{align}
+	\ev{U}_1 =& \frac{1}{Z_1} \sum_m \epsilon_m e^{-\beta \epsilon_m},\\
+	=& -\pdv{\beta} \log Z_1,\\
+	=& \frac{\hbar\omega}{e^{\beta\hbar\omega}-1}.
+\end{align}
+The Helmholtz free energy is given by
+\begin{align}
+	F =& - \frac{1}{\beta}\log Z_1,\\
+	=& \frac{1}{\beta} \log(1-e^{-\beta\hbar\omega}).
+\end{align}
+The heat capacity at constant volume is given by
+\begin{align}
+	C_v =& \pdv{\ev{U}_1}{T},\\
+	=& \frac{(\beta\hbar\omega)^2 e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}
+\end{align}
 
 \printBib
 
