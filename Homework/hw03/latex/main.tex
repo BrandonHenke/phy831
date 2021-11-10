@@ -94,20 +94,84 @@ This is a geometric series, so
 \end{equation}
 The average energy is given by
 \begin{align}
-	\ev{U}_1 =& \frac{1}{Z_1} \sum_m \epsilon_m e^{-\beta \epsilon_m},\\
-	=& -\pdv{\beta} \log Z_1,\\
+	\ev{U}_1 =& -\frac{1}{Z_1}\pdv{Z_1}{\beta},\\
 	=& \frac{\hbar\omega}{e^{\beta\hbar\omega}-1}.
 \end{align}
 The Helmholtz free energy is given by
 \begin{align}
-	F =& - \frac{1}{\beta}\log Z_1,\\
+	F_1 =& - \frac{1}{\beta}\log Z_1,\\
 	=& \frac{1}{\beta} \log(1-e^{-\beta\hbar\omega}).
 \end{align}
 The heat capacity at constant volume is given by
 \begin{align}
-	C_v =& \pdv{\ev{U}_1}{T},\\
+	C_{v,1} =& \pdv{\ev{U}_1}{T},\\
 	=& \frac{(\beta\hbar\omega)^2 e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}
 \end{align}
+
+\subsubsection{}
+For a classical system, the partition function is given by
+\begin{equation}
+	Z = \frac{1}{(2\pi\hbar)^3}\int e^{-\beta H(q,p)} \dd[3]{q}\dd[3]{p}.
+\end{equation}
+In the case of a single harmonic oscillator,
+\begin{equation}
+	H(q,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega q^2.
+\end{equation}
+Itaque,
+\begin{align}
+	Z =& \frac{1}{(2\pi\hbar)^3}\int e^{-\frac{\beta p^2}{2m}}\dd[3]{p}\int e^{-\frac{1}{2}\beta m \omega q^2}\dd[3]{q},\\
+	=& \frac{16\pi^2}{(2\pi\hbar)^3} \frac{\pi}{2} \frac{1}{\beta^3 \omega^{3/2}},\\
+	=& \frac{1}{(\beta\hbar\sqrt{\omega})^{3}}.
+\end{align}
+In ultra, the average energy is given by
+\begin{align}
+	\ev{U} =& -\frac{1}{Z} \pdv{Z}{\beta},\\
+	=& (\beta\hbar\sqrt{\omega})^{3}\frac{3}{\beta^4(\hbar\sqrt{\omega})^{3}},\\
+	=& \frac{3}{\beta}.
+\end{align}
+
+In the limit where $\hbar \rightarrow 0$ the average energy for the quantum case becomes that of classical case for an oscillator in one dimension.
+The classical case was done for three dimensions, which is why there is a factor of three.
+
+\subsubsection{}
+For two non-interacting systems at the same temperature, the same energy levels are possible in each system.
+Itaque, the partition function is given by
+\begin{align}
+	Z(M+N) =& \sum_{m}\sum_{n} e^{-\beta (\epsilon_m+\epsilon_n)},\\
+	=& \sum_{m}\sum_{n} e^{-\beta\epsilon_m}e^{-\beta\epsilon_n},\\
+	=& \left(\sum_{m}e^{-\beta\epsilon_m}\right)\left(\sum_{n}e^{-\beta\epsilon_n}\right),\\
+	=& Z(M)Z(N).
+\end{align}
+
+\subsubsection{}
+For a system of $N$ oscillators, the partition function becomes
+\begin{equation}
+	Z_N = Z_1^N = \frac{1}{\left(1-e^{-\beta \hbar \omega}\right)^N}.
+\end{equation}
+
+The average energy is
+\begin{equation}
+	\ev{U}_N = -\frac{1}{Z_1^N} \pdv{Z_1^N}{\beta} = -\frac{N}{Z_1} \pdv{Z_1}{\beta} = N\ev{U}_1 = \frac{N\hbar\omega}{e^{\beta\hbar\omega}-1}.
+\end{equation}
+
+The Helmholtz free energy is
+\begin{equation}
+	F_N = -\frac{1}{\beta}\log{Z} = -\frac{N}{\beta}\log{Z_1} = NF_1 = \frac{N}{\beta} \log(1-e^{-\beta\hbar\omega})
+\end{equation}
+
+The Heat capacity at constant volume is
+\begin{equation}
+	C_{v,N} = \pdv{\ev{U}}{T} = N\pdv{\ev{U}_1}{T} = N C_{v,1} =  \frac{N(\beta\hbar\omega^2)e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}.
+\end{equation}
+
+\subsection{}
+
+The partition function of the state is given by
+\begin{align}
+	Z(T,N,V,B) =& \prod_n \left(\int e^{-\frac{\beta p_n^2}{2m}}\dd[3]{p}\right)\left(\sum_m e^{\beta \mu B S_{n,z}}\right),\\
+	=& \prod_n \left(\frac{2\pi m}{\beta}\right)^{3/2}\left( Stuff? \right)
+\end{align}
+
 
 \printBib
 
