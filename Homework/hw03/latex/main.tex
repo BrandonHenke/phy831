@@ -168,9 +168,77 @@ The Heat capacity at constant volume is
 
 The partition function of the state is given by
 \begin{align}
-	Z(T,N,V,B) =& \prod_n \left(\int e^{-\frac{\beta p_n^2}{2m}}\dd[3]{p}\right)\left(\sum_m e^{\beta \mu B S_{n,z}}\right),\\
-	=& \prod_n \left(\frac{2\pi m}{\beta}\right)^{3/2}\left( Stuff? \right)
+	Z(T,N,V,B) =& \frac{1}{N!(2\pi\hbar)^{3N}}\left(V\int e^{-\frac{\beta p^2}{2m}} \dd[3]{p}\right)^N \left( e^{\beta\mu B}+1+e^{-\beta\mu B} \right)^N,\\
+	=& \frac{1}{N!} \left(V\sqrt{\frac{(2\pi)^3 m^3}{\beta^3(2\pi\hbar)^{6}}} \left(e^{\beta\mu B}+1+e^{-\beta\mu B}\right)\right)^N,\\
+	=& \frac{1}{N!} \left(\frac{V}{l_Q^3} \left(e^{\beta\mu B}+1+e^{-\beta\mu B}\right)\right)^N
 \end{align}
+
+\subsubsection{}
+The probabilities for a given molecule to have $S_z = -1,0,$ or $1$ are
+\begin{align}
+	P(S_z = -1) =& \frac{e^{\beta\mu B}}{e^{\beta\mu B}+1+e^{-\beta\mu B}},\\
+	P(S_z = 0) =& \frac{1}{e^{\beta\mu B}+1+e^{-\beta\mu B}},\\
+	P(S_z = 1) =& \frac{e^{-\beta\mu B}}{e^{\beta\mu B}+1+e^{-\beta\mu B}}
+\end{align}
+
+\subsubsection{}
+The average magnetization is given by
+\begin{align}
+	\ev{M} =& \frac{1}{\beta} \frac{1}{Z} \pdv{Z}{B},\\
+	=& N\mu \frac{e^{\beta\mu B}-e^{-\beta\mu B}}{e^{\beta\mu B}+1+e^{-\beta\mu B}}.
+\end{align}
+Itaque,
+\begin{align}
+	\frac{\ev{M}}{V} =& \frac{N\mu}{V}\frac{e^{\beta\mu B}-e^{-\beta\mu B}}{e^{\beta\mu B}+1+e^{-\beta\mu B}}.
+\end{align}
+
+\subsubsection{}
+The zero-field isothermal susceptibility, $\chi_T$ is given by
+\begin{align}
+	\chi_T = \eval{\pdv{\ev{M}}{B}}_{B=0} =& \frac{2 N \beta  \mu^2 }{3}.
+\end{align}
+
+\subsection{}
+\subsubsection{}
+The classical partition function is given by
+\begin{align}
+	Z =& \frac{1}{(2\pi\hbar)^2}\int e^{-\frac{\beta}{2I}p_\theta^2}
+	e^{-\frac{\beta}{2I}\frac{p_\phi^2}{\sin^2\theta}\right)}
+	e^{\beta\mu\mathcal{E}\cos\theta}\dd[2]{p}\dd[2]{q},\\
+	=& \frac{1}{(2\pi\hbar)^2}\int_0^{2\pi}\dd{\phi}\int_0^{\pi}\dd{\theta}\int_{-\infty}^{\infty}\dd{p_\phi}\int_{-\infty}^{\infty}\dd{p_\theta} e^{-\frac{\beta}{2I}p_\theta^2}
+	e^{-\frac{\beta}{2I}\frac{p_\phi^2}{\sin^2\theta}\right)}
+	e^{\beta\mu\mathcal{E}\cos\theta},\\
+	=& \frac{2\pi}{(2\pi\hbar)^2} \int_0^{\pi}\dd{\theta} \sqrt{\frac{\pi 2I}{\beta}}\sqrt{\frac{\pi 2I \sin^2\theta}{\beta}}e^{\beta\mu\mathcal{E}\cos\theta},\\
+	=& \frac{I}{\hbar^2\beta} \int_0^{\pi}\dd{\theta} \sin\theta e^{\beta\mu\mathcal{E}\cos\theta},\\
+	=& \frac{2I}{\hbar^2\beta^2\mu\mathcal{E}}\sinh (\beta  \mu  \mathcal{E})
+\end{align}
+
+\subsubsection{}
+The average polarization, $P = \ev{\mu\cos\theta}$, is given by
+\begin{align}
+	P = \ev{\mu\cos\theta} =& \frac{1}{\beta}\frac{1}{Z} \pdv{Z}{\mathcal{E}},\\
+	=& \frac{1}{\beta} \left(\frac{\sinh(\beta\mu\mathcal{E})}{\mathcal{E}}\right)^{-1} \left(\frac{\beta\mu\cosh(\beta\mu\mathcal{E})}{\mathcal{E}}-\frac{\sinh(\beta\mu\mathcal{E})}{\mathcal{E}^2}\right),\\
+	=& \mu \left(\coth(\beta\mu\mathcal{E})-\frac{1}{\beta\mu\mathcal{E}}\right).
+\end{align}
+
+\subsubsection{}
+The zero-field isothermal polarizability, $\chi_T$ is given by
+\begin{align}
+	\chi_T = \eval{\pdv{\ev{P}}{\mathcal{E}}}_{\mathcal{E}=0}
+	=& \lim_{\mathcal{E}\rightarrow 0} \mu \left( \frac{1}{\beta\mu\mathcal{E}^2} - \beta\mu\csch[2](\beta\mu\mathcal{E}) \right),\\
+	=& \frac{\beta\mu^2}{3}.
+\end{align}
+
+\subsubsection{}
+The average rotational energy is given by
+\begin{align}
+	\ev{E} = -\frac{1}{Z}\pdv{Z}{\beta} =& \frac{2}{\beta}-\mu\mathcal{E}\coth(\beta\mu\mathcal{E}).
+\end{align}
+
+In the low temperature limit, $\beta \rightarrow \infty$, $\ev{E} \rightarrow \mu\mathcal{E}$.
+In the high temperature limit, $\beta \rightarrow 0$, so $\coth(\beta\mu\mathcal{E}) \approx \frac{1}{\beta\mu\mathcal{E}}$.
+Itaque, in the high temperature limit, $\ev{E} \approx \frac{1}{\beta}$.
+
 
 
 \printBib
