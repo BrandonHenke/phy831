@@ -168,12 +168,71 @@ The Helmholtz free energy, then, is
 	A = -\frac{1}{\beta}\log{Z_N} =& -\frac{N}{\beta} \log(\frac{V}{N!l_Q^6})-\frac{3N}{2\beta}\log(\frac{2\pi}{\beta K})
 \end{align}
 \subsubsection{}
+By the equipartition theorem,
+\begin{equation}
+	C_v = \frac{9}{2}N k_B,
+\end{equation}
+since there are nine different ways to put energy into the molecule:
+\begin{enumerate}
+	\item three directions of relative translation,
+	\item three directions of relative velocities, and
+	\item three directions of coupled velocity.
+\end{enumerate}
 \subsubsection{}
+The mean square molecular diameter is given by
+\begin{equation}
+	\ev{\abs{\vb{r}_1-\vb{r}_2}^2} = \ev{r^2}
+	= \frac{\int r^2 e^{-\frac{\beta K}{2}r^2}\dd[3]{r}}{\int e^{-\frac{\beta K}{2}r^2}\dd[3]{r}}.
+\end{equation}
+One notices that the numerator is given by
+\begin{align}
+	\int r^2 e^{-\frac{\beta K}{2}r^2}\dd[3]{r} =& -2\pdv{(\beta K)}\left( \int r^2 e^{-\frac{\beta K}{2}r^2}\dd[3]{r} \right),\\
+	=& -2\pdv{(\beta K)} \sqrt{\frac{2\pi}{\beta K}}^3,\\
+	=& \frac{3}{2}\sqrt{\frac{(2\pi)^3}{(\beta K)^5}}.
+\end{align}
+Hence,
+\begin{equation}
+	\ev{r^2} = \frac{3}{2}\sqrt{\frac{(2\pi)^3}{(\beta K)^5}} \sqrt{\frac{\beta K}{2\pi}}^3
+	= \frac{3}{\beta K}.
+\end{equation}
 \subsection{}%5
 \subsubsection{}
+\begin{align}
+	\ev{A}{\Psi} =& \left(\sum_{\beta,j}C_{\beta j}^* \bra{\beta}\otimes\bra{j}\right) \left(\sum_{\alpha,i}C_{\alpha i} (A\ket{\alpha})\otimes\ket{i}\right),\\
+	=& \sum_{\alpha,\beta,i,j} C_{\beta j}^*C_{\alpha i} \mel{\beta}{A}{\alpha}\otimes\ip{j}{i},\\
+	=& \sum_{\alpha,\beta,i} C_{\beta i}^*C_{\alpha i} \mel{\beta}{A}{\alpha},\\
+	=& \sum_{\alpha,\beta} \rho_{\alpha\beta} \mel{\beta}{A}{\alpha},\\
+	=& \Tr_s\left(A\rho\right).\\
+\end{align}
 \subsubsection{}
+The density operator is Hermitian:
+\begin{align}
+	\rho^\dagger= \rho_{\beta\alpha}^* =& \sum_{i} C_{\beta i}^*C_{\alpha i},\\
+	=& \sum_{i} C_{\alpha i}C_{\beta i}^*,\\
+	=& \rho_{\alpha\beta}.
+\end{align}
+Since $\rho_{\alpha\beta}$ is hermitian, it can be written as a linear combination of eigenvectors and their respective eigenvalues:
+\begin{align}
+	\rho_{\alpha\beta} =& \mel{\alpha}{\left(\sum_k \lambda_k \op{\rho_k}\right)}{\beta},\\
+	=& \sum_k \lambda_k \ip{\alpha}{\rho_k}\ip{\rho_k}{\beta}
+\end{align}
 \subsubsection{}
+The eigenvalues all sum to unity:
+\begin{align}
+	\ip{\Psi} = \Tr(\rho) = 1 =& \sum_n \ev{\left(\sum_k \lambda_k \op{\rho_k}\right)}{n},\\
+	=& \sum_n \sum_k \lambda_k \ip{n}{\rho_k}\ip{\rho_k}{n},\\
+	=& \sum_n \sum_k \lambda_k \ip{\rho_k}{n}\ip{n}{\rho_k},\\
+	=& \sum_k \lambda_k \ip{\rho_k},\\
+	=& \sum_k \lambda_k.
+\end{align}
 
+The eigenvalues are between zero and one:
+\begin{align}
+	\forall \ket{\psi}, \ev{\rho}{\psi} =& \sum_{k} \lambda_k \abs{\ip{\psi}{\rho_k}}^2 \geq 0.\\
+	\therefore \ev{\rho}{\rho_n} =& \sum_k \lambda_k \abs{\ip{\rho_n}{\rho_k}}^2,\\
+	=& \lambda_n \geq 0.
+\end{align}
+Additionally, since the sum of eigenvalues is equal to unity, all eigenvalues must be less than one.
 
 \printBib
 
