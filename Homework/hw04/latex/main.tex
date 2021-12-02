@@ -61,17 +61,17 @@ Therefore,
 \end{align}
 \subsection{}%2
 \begin{align}
-	\dv{p_i}{t} &= \sum_{j} \omega_{ij}(p_j-p_i).\\
-	S &= -\sum_{i} p_i\log(p_i),\\
-	\dv{S}{t} &= -\sum_{i}\dv{p_i}{t}\log(p_i) - \dv{t}(\sum_{i}p_i),\\
-	&= -\sum_{i}\dv{p_i}{t}\log(p_i),\\
-	&= \sum_{i,j} \omega_{ij}(p_i-p_j)\log(p_i).
+	\dv{p_i}{t} =& \sum_{j} \omega_{ij}(p_j-p_i).\\
+	S =& -\sum_{i} p_i\log(p_i),\\
+	\dv{S}{t} =& -\sum_{i}\dv{p_i}{t}\log(p_i) - \dv{t}(\sum_{i}p_i),\\
+	=& -\sum_{i}\dv{p_i}{t}\log(p_i),\\
+	=& \sum_{i,j} \omega_{ij}(p_i-p_j)\log(p_i).
 \end{align}
 If $p_i = p_j$, $\dv*{S}{t} = 0$.
 Thus,
 \begin{align}
-	\dv{S}{t} &= \sum_{i,j} \omega_{ij}\frac{1}{2}\left((p_i-p_j)\log(p_i)-(p_i-p_j)\log(p_j)\right),\\
-	&= \sum_{i,j} \frac{\omega_{ij}}{2}(p_i-p_j)\log(\frac{p_i}{p_j}).
+	\dv{S}{t} =& \sum_{i,j} \omega_{ij}\frac{1}{2}\left((p_i-p_j)\log(p_i)-(p_i-p_j)\log(p_j)\right),\\
+	=& \sum_{i,j} \frac{\omega_{ij}}{2}(p_i-p_j)\log(\frac{p_i}{p_j}).
 \end{align}
 If $p_i > p_j$, then $(p_i-p_j) > 0$ and $\log(\frac{p_i}{p_j}) > 0$.
 Lastly, if $p_j > p_i$, then $(p_i-p_j) < 0$ and $\log(\frac{p_i}{p_j}) < 0$, so their product is positive.
@@ -81,10 +81,16 @@ Therefore,
 \end{equation}
 \subsection{}%3
 \subsubsection{}
+The definition of the grand partition function is
+\begin{equation}
+	\mathcal{Z} = \sum_{N=0}^\infty z^N Z_N,
+	\label{eq: gce}
+\end{equation}
+where $z = e^{\beta\mu}$ is the fugacity, and $Z_N$ is the canonical partition function for the system with $N$ particles.
 \begin{align}
-\mathcal{Q}(T,\mu,V) &= \sum_{N=0}^\infty e^{\beta \mu N} \frac{1}{N!} \int \left(\prod_{n=1}^N \frac{\dd[3]{\vb{q}_n}\dd[3]{\vb{p}_n}}{(2\pi \hbar)^3}\right) e^{-\beta \sum_{n=1}^N \frac{p_n^2}{2m}},\\
-&= \sum_{N=0}^\infty e^{\beta \mu N} \frac{V^N}{N!(2\pi \hbar)^{3N}} \left(\int \dd[3]{\vb{p}} e^{-\beta \frac{p^2}{2m}}\right)^N,\\
-&= \sum_{N=0}^\infty e^{\beta \mu N} \frac{V^N}{N!} \left(\frac{m}{2\pi \hbar^2 \beta}\right)^{3N/2}.
+\mathcal{Z}(T,\mu,V)
+=& \sum_{N=0}^\infty e^{\beta \mu N} \frac{V^N}{N!(2\pi \hbar)^{3N}} \left(\int \dd[3]{\vb{p}} e^{-\beta \frac{p^2}{2m}}\right)^N,\\
+=& \sum_{N=0}^\infty e^{\beta \mu N} \frac{V^N}{N!} \left(\frac{m}{2\pi \hbar^2 \beta}\right)^{3N/2}.
 \end{align}
 Let
 \begin{equation}
@@ -92,34 +98,75 @@ Let
 \end{equation}
 Then
 \begin{equation}
-	\mathcal{Q}(T,\mu,V) = \sum_{N=0}^\infty  \frac{e^{\beta \mu N}}{N!} \frac{V^N}{l_Q^{3N}} = \sum_{N=0}^\infty  \frac{z^N}{N!} \frac{V^N}{l_Q^{3N}} = e^{z V / l_Q^3}.
+	\mathcal{Z}(T,\mu,V) = \sum_{N=0}^\infty  \frac{e^{\beta \mu N}}{N!} \frac{V^N}{l_Q^{3N}} = \sum_{N=0}^\infty  \frac{z^N}{N!} \frac{V^N}{l_Q^{3N}} = e^{z V / l_Q^3}.
+	\label{eq: p3_gpf}
 \end{equation}
 \subsubsection{}
 \begin{equation}
-	e^{-\beta \mathcal{G}} = \mathcal{Q}.
+	e^{-\beta \mathcal{G}} = \mathcal{Z},
 \end{equation}
+where $\mathcal{G}$ is the grand potential.
 Solving for $\mathcal{G}$ gives
 \begin{equation}
-	\mathcal{G}(T,\mu,V) = -\frac{1}{\beta} \log(\mathcal{Q}) = -\frac{e^{\beta \mu}V}{\beta l_Q^3}.
+	\mathcal{G}(T,\mu,V) = -\frac{1}{\beta} \log(\mathcal{Z}) = -\frac{e^{\beta \mu}V}{\beta l_Q^3}.
 \end{equation}
 By definition of pressure,
 \begin{align}
-	P &= -\pdv{\mathcal{G}}{V},\\
-	&= \frac{e^{\beta \mu}}{\beta l_Q^3}.
+	P =& -\pdv{\mathcal{G}}{V},\\
+	=& \frac{e^{\beta \mu}}{\beta l_Q^3}.
 \end{align}
 Additionally,
 \begin{align}
-	N &= - \pdv{\mathcal{G}}{\mu},\\
-	&= \frac{e^{\beta \mu}V}{l_Q^3}.
+	N = \ev{N} =& - \pdv{\mathcal{G}}{\mu},\\
+	=& \frac{e^{\beta \mu}V}{l_Q^3}.\label{eq: p3_evN}
 \end{align}
 Hence
 \begin{align}
-	PV &= \frac{e^{\beta \mu}}{\beta l_Q^3}\frac{l_Q^3 N}{e^{\beta \mu}},\\
-	PV &= \frac{N}{\beta}. \qquad\checkmark
+	PV =& \frac{e^{\beta \mu}}{\beta l_Q^3}\frac{l_Q^3 N}{e^{\beta \mu}},\\
+	PV =& \frac{N}{\beta}. \qquad\checkmark
 \end{align}
 \subsubsection{}
+The Poisson distribution is defined as
+\begin{equation}
+	P(k) \equiv \frac{\lambda^k e^{-\lambda}}{k!},
+	\label{eq: poisson}
+\end{equation}
+for some random variable, $X = k$, where $\lambda$ is the expectation value of the random variable.
+In the case of the problem, the random variable is $N$, and the expectation value of this variable was found to be $\lambda = \ev{N} = zV/l_Q^3$.
+
+To show that the particle number is described by the Poisson distribution, start from the probability of finding $N$ particles in the system:
+\begin{align}
+	P(N) = \frac{z^N Z_N}{\mathcal{Z}}
+	=& \frac{1}{\mathcal{Z}} \frac{(zZ_1)^N}{N!},\\
+	=& \frac{1}{\mathcal{Z}} \frac{e^{\beta\mu}V}{N! l_Q^3}.
+\end{align}
+Substituting in \ref{eq: p3_gpf} and \ref{eq: p3_evN} gives
+\begin{equation}
+	P(N) = \frac{\ev{N}}{N!}e^{-z V / l_Q^3} = \frac{\ev{N}e^{-\ev{N}}}{N!}.
+\end{equation}
+Hence, the distribution of particle numbers is Poissonian.
 \subsection{}%4
 \subsubsection{}
+The Helmholtz free energy, $A$ is given by
+\begin{equation}
+	A = -\frac{\log Z_N}{\beta}.
+\end{equation}
+The partition function for the system is given by
+\begin{align}
+	Z_N =& \frac{1}{N!(2\pi\hbar)^{6N}}\left( \int e^{-\frac{\beta}{2m}(p_1^2+p_2^2)}e^{-\frac{\beta K}{2}\abs{\vb{r}_1-\vb{r}_2}^2}\dd[3]{p_1}\dd[3]{p_2}\dd[3]{r_1}\dd[3]{r_2}\right)^N,\\
+	=& \frac{1}{N!(2\pi\hbar)^{3N}} \left(\frac{2\pi m}{\beta}\right)^{3N}\left( \int e^{-\frac{\beta K}{2}\abs{\vb{r}_1-\vb{r}_2}^2}\dd[3]{r_1}\dd[3]{r_2}\right)^N,\\
+	=& \frac{1}{N!l_Q^{6N}}\left(\int e^{-\frac{\beta K}{2}\abs{\vb{r}_1-\vb{r}_2}^2}\dd[3]{r_1}\dd[3]{r_2}\right)^N.
+\end{align}
+Let $\vb{r} = \vb{r}_1 - \vb{r}_2$ and $\vb{R} = \frac{1}{2}(\vb{r}_1 + \vb{r}_2)$.
+Then the integral becomes
+\begin{align}
+	Z_N =& \frac{1}{N!l_Q^{6N}}\left(\int \dd[3]{R}\int e^{-\frac{\beta K}{2}\vb{r}^2}\dd[3]{r}\right)^N,\\
+	=& \frac{V^N}{N!l_Q^{6N}} \sqrt{\frac{2\pi}{\beta K}}^{3N}.
+\end{align}
+The Helmholtz free energy, then, is
+\begin{align}
+	A = -\frac{1}{\beta}\log{Z_N} =& -\frac{N}{\beta} \log(\frac{V}{N!l_Q^6})-\frac{3N}{2\beta}\log(\frac{2\pi}{\beta K})
+\end{align}
 \subsubsection{}
 \subsubsection{}
 \subsection{}%5
