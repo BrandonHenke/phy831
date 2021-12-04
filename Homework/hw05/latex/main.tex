@@ -40,28 +40,66 @@
 \subsubsection{}
 \begin{align}
 	-\frac{\hbar^2}{2I}\psi_n''(\theta) =& E_n \psi_n(\theta),\\
-	\rightarrow& \psi_n(\theta) = c_1 \cos(\frac{\sqrt{2IE_n}}{\hbar}\theta) + c_2 \sin(\frac{\sqrt{2IE_n}}{\hbar}\theta).
+	\therefore \psi_n(\theta) =& c_{1,n} e^{ik_n\theta}+c_{2,n} e^{-ik_n\theta},
+	\label{eq: 5.1 gen_sol}
 \end{align}
-From boundary conditions,
+where $ k_n = \sqrt{2IE_n}/\hbar$.
+Since $\comm{H}{L_z}=0$ the solution to Shr\"odinger's equation must also be an eigenstate of the $L_z$ operator:
 \begin{align}
-	\cos(\frac{\sqrt{2IE_n}}{\hbar}2\pi) =& 1,\\
-	\frac{\sqrt{2IE_n}}{\hbar}2\pi =& 2n\pi,\\
+	\hat{L}_z \ket{\psi_n} =& l_n \ket{\psi_n},\\
+	-i\hbar\pdv{\psi_n}{\theta} =& l_n \psi_n,\\
+	\psi_n (\theta) =& d_n e^{i l_n \theta/\hbar}.
+\end{align}
+Therefore, in equation \ref{eq: 5.1 gen_sol}, either $c_{1,n} = 0$ or $c_{2,n} = 0$, so, let $c_{2,n} = 0$:
+\begin{equation}
+	\psi_n(\theta) = c_{1,n} e^{i k_n \theta}.
+	\label{eq: 5.1 sol}
+\end{equation}
+Since the boundary conditions are periodic, with a period of $2\pi$,
+\begin{align}
+	\frac{\sqrt{2IE_n}}{\hbar} \in \mathbb{Z}\rightarrow n =& \frac{\sqrt{2IE_n}}{\hbar},\\
 	E_n =& \frac{n^2\hbar^2}{2I}.
 \end{align}
+Additionally, $\abs{\psi_n}^2 = 1$, so
+\begin{align}
+	1 =& \int_0^{2\pi} c_n^2 \dd{\theta},\\
+	c_n =& \sqrt{\frac{1}{2\pi}}.
+\end{align}
+
+Therefore,
+\begin{align}
+	\psi_n(\theta) =& \frac{1}{\sqrt{2\pi}}e^{i n\theta},\\
+	E_n =& \frac{n^2\hbar^2}{2I}.
+\end{align}
+
 \subsubsection{}
+Let $\rho = \frac{1}{Z} e^{-\beta\hat{H}}$, where $Z$ is the canonical partition function, and $\hat{H}$ is the Hamiltonian.
+Then
+\begin{align}
+	\mel{\theta'}{\rho}{\theta} =& \frac{1}{Z} \mel{\theta'}{e^{-\beta\hat{H}}}{\theta},\\
+	=& \frac{\sum_n e^{-\beta E_n}\ip{\theta'}{\psi_n}\ip{\psi_n}{\theta}}{\Tr( e^{-\beta \hat{H}})},\\
+	=& \frac{\sum_n e^{-\beta E_n}e^{i n(\theta'-\theta)}}{2\pi\Tr(e^{-\beta \hat{H}})}.
+\end{align}
 
+In the high temperature limit, $\beta \rightarrow 0$, and the sum can be closely approximated by an integral:
+\begin{align}
+	\mel{\theta'}{\rho}{\theta}
+	=& \sqrt{\frac{\beta\hbar^2}{2\pi I}}\frac{1}{2\pi} \int e^{-\beta E_n}e^{i n(\theta'-\theta)}\dd{n},\\
+	=& \sqrt{\frac{\beta\hbar^2}{2\pi I}}\frac{1}{2\pi} \int e^{-\beta \frac{n^2\hbar^2}{2I}+in\Delta\theta}\dd{n},\\
+	=& \sqrt{\frac{\beta\hbar^2}{2\pi I}}\frac{1}{2\pi} \int e^{-\beta \frac{n^2\hbar^2}{2I}+in\Delta\theta}\dd{n}
+\end{align}
 
+\subsection{}
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
 \subsection{}
 Find grand partition function, then grand potential, then pressure from grand potential.
 There will be an integration by parts.
-\subsubsection{}
-\subsubsection{}
-\subsubsection{}
 \subsection{}
 See lectures 20 and 21 for density of states.
 \subsection{}
 See lectures 20 and 21 for summerfeld expansion.
-\subsection{}
 
 \printBib
 
