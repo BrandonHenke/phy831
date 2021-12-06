@@ -1,0 +1,52 @@
+\documentclass[a4paper,12pt,twoside]{article}
+
+\immediate\write18{echo -n "\\newcommand{\\gitroot}{" > gitroot.txt && git rev-parse --show-toplevel >> gitroot.txt && truncate -s-1 gitroot.txt && echo -n "}" >> gitroot.txt}
+
+\input{gitroot.txt}
+\usepackage{\gitroot/latexTemplate/preamble}
+
+
+\newcommand{\Author}{Brandon Henke}
+\newcommand{\course}{PHY831}
+\newcommand{\professor}{Scott Bogner}
+
+\newcommand{\mcols}{0}
+
+
+\title{Homework 7}
+\author{
+	Brandon Henke\\
+	\textit{\course}\\
+	\textit{\professor}
+}
+\date{Novembre 26, 2021}
+
+
+\fancyhead[LE,RO]{B. Henke}
+\fancyhead[RE,LO]{\thepage}
+
+\bibSetup{refs.bib}
+
+\begin{document}
+%\tableofcontents
+
+\maketitle
+\if\mcols1
+\begin{multicols*}{2}
+\fi
+
+\setcounter{section}{7}
+\subsection{}
+\subsection{}
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+\subsubsection{}
+
+\printBib
+
+
+\if\mcols1
+\end{multicols*}
+\fi
+\end{document}
