@@ -156,10 +156,24 @@ Hence $T < \frac{2\pi \hbar^2}{m k_B L^2}$.
 \subsection{}
 \begin{align}
 	PV\beta = \log(\mathcal{Z}) =& -\eta(2S+1)V\int\frac{\dd[3]{p}}{(2\pi\hbar)^3}\log(1-\eta e^{-\beta(\epsilon(p) - \mu)}),\\
-	=& -\frac{\eta(2S+1)V}{2\pi^2\hbar^3} \int \dd{p} p^2 \log(1-\eta e^{-\beta(\epsilon(p)-\mu)}),\\
+	=& -\frac{\eta(2S+1)V 4\pi}{(2\pi\hbar)^3} \int \dd{p} p^2 \log(1-\eta e^{-\beta(\epsilon(p)-\mu)}),\\
+	=& \frac{\eta (2S+1)V 4\pi \beta}{(2\pi\hbar)^3} \int \dd{p}\frac{p^4}{3\epsilon(p)} \frac{1}{\eta - e^{-\beta(\epsilon(p)-\mu)}},\\
+	P =& (2S+1) \int \frac{\dd[3]{p}}{(2\pi\hbar)^3}\frac{p^2}{3\epsilon(p)} \frac{1}{e^{-\beta(\epsilon(p)-\mu)}-\eta}.
 \end{align}
 \subsection{}
-See lectures 20 and 21 for density of states.
+Density of states is given by
+\begin{equation}
+	g(\epsilon) = \pdv{\Sigma(\epsilon)}{\epsilon},
+\end{equation}
+where
+\begin{equation}
+	\Sigma(\epsilon) = \sum_{n_x,n_y,n_z} \Theta(\epsilon - \hbar\omega(n_x+n_y+n_z)).
+\end{equation}
+Thus
+\begin{align}
+	g(\epsilon) =& \sum_{n_x,n_y,n_z} \delta(\epsilon - \hbar\omega(n_x+n_y+n_z)),\\
+	\approx& \int \dd{n_x}\dd{n_y}\dd{n_z} \delta(\epsilon - \hbar\omega(n_x+n_y+n_z)),\\
+\end{align}
 \subsection{}
 See lectures 20 and 21 for summerfeld expansion.
 
