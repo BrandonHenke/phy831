@@ -155,13 +155,59 @@ Hence $T < \frac{2\pi \hbar^2}{m k_B L^2}$.
 
 \subsection{}
 \begin{align}
-	PV\beta = \log(\mathcal{Z}) =& -\eta(2S+1)V\int\frac{\dd[3]{p}}{(2\pi\hbar)^3}\log(1-\eta e^{-\beta(\epsilon(p) - \mu)}),\\
-	=& -\frac{\eta(2S+1)V}{2\pi^2\hbar^3} \int \dd{p} p^2 \log(1-\eta e^{-\beta(\epsilon(p)-\mu)}),\\
+	PV\beta = \log(\mathscr{Z}) =& -\eta(2S+1)V\int\frac{\dd[3]{p}}{(2\pi\hbar)^3}\log(1-\eta e^{-\beta(\epsilon(p) - \mu)}),\\
+	=& -\frac{\eta(2S+1)V 4\pi}{(2\pi\hbar)^3} \int \dd{p} p^2 \log(1-\eta e^{-\beta(\epsilon(p)-\mu)}),\\
+	=& \frac{\eta (2S+1)V 4\pi \beta}{(2\pi\hbar)^3} \int \dd{p}\frac{p^4}{3\epsilon(p)} \frac{1}{\eta - e^{-\beta(\epsilon(p)-\mu)}},\\
+	P =& (2S+1) \int \frac{\dd[3]{p}}{(2\pi\hbar)^3}\frac{p^2}{3\epsilon(p)} \frac{1}{e^{-\beta(\epsilon(p)-\mu)}-\eta}.
 \end{align}
 \subsection{}
-See lectures 20 and 21 for density of states.
+Density of states is given by
+\begin{equation}
+	g(\epsilon) = \pdv{\Sigma(\epsilon)}{\epsilon},
+\end{equation}
+where
+\begin{equation}
+	\Sigma(\epsilon) = \sum_{n_x,n_y,n_z} \Theta(\epsilon - \hbar\omega(n_x+n_y+n_z)).
+\end{equation}
+Thus
+\begin{align}
+	g(\epsilon) =& \sum_{n_x,n_y,n_z} \delta(\epsilon - \hbar\omega(n_x+n_y+n_z)),\\
+	\approx& \int \dd{n_x}\dd{n_y}\dd{n_z} \delta(\epsilon - \hbar\omega(n_x+n_y+n_z)),\\
+	\approx& \int \dd{n_x}\dd{n_y}\dd{n_z} \int_{-\infty}^\infty \frac{1}{2\pi}\dd{\alpha} e^{i\alpha(\epsilon - \hbar\omega(n_x+n_y+n_z))},\\
+	=& \int_{-\infty}^\infty {
+	\frac{\dd{\alpha}}{2\pi} e^{i\alpha \epsilon} \int_0^\infty \dd{n_x} e^{-i\alpha \hbar\omega n_x}
+	\int_0^\infty \dd{n_y} e^{-i\alpha \hbar\omega n_y}
+	\int_0^\infty \dd{n_z} e^{-i\alpha \hbar\omega n_z}
+	},\\
+	=& \lim_{\delta \rightarrow 0}\int_{-\infty}^\infty \frac{\dd{\alpha}}{2\pi} e^{i\alpha \epsilon} \left(\frac{1}{i\alpha\hbar\omega+\delta}\right)^3,\\
+	=& \frac{1}{4\abs{\epsilon}}\left(\frac{\epsilon}{\hbar\omega}\right)^3. \qq{(Mathematica)}
+\end{align}
+This has the same $\epsilon$ dependence as UR gas in $3D$ box $(\sim\epsilon^2)$.
+
 \subsection{}
-See lectures 20 and 21 for summerfeld expansion.
+\begin{equation}
+	N(\mu,T) = g'(\mu) \frac{\pi^2}{6\beta^2} + \int_0^\mu \dd{\epsilon} g(\epsilon).
+\end{equation}
+Take $\mu \rightarrow \mu+\delta\mu$:
+\begin{align}
+	N(\mu,T) =& g'(\mu) \frac{\pi^2}{6\beta^2} + \int_0^{\mu+\delta\mu} \dd{\epsilon} g(\epsilon),\\
+	=& g'(\mu) \frac{\pi^2}{6\beta^2} + \delta\mu g(\mu) + \int_0^\mu \dd{\epsilon} g(\epsilon),\\
+	\qq{(want)}=& \int_0^\mu \dd{\epsilon} g(\epsilon).\\
+	\therefore \delta\mu =& -\frac{g'(\mu)}{g(\mu)} \frac{\pi^2}{6\beta^2}.
+\end{align}
+For a $3D$, non-relativistic, gas of spin $\frac{1}{2}$ particles,
+\begin{equation}
+	g(\epsilon) = \frac{2V}{\sqrt{2}\pi^2\hbar^3} m^{3/2}\sqrt{\epsilon}.
+\end{equation}
+Itaque,
+\begin{equation}
+	\delta\mu = -\frac{1}{\mu} \frac{\pi^2}{12\beta^2}.
+\end{equation}
+
+For an answer on the order of $\mathcal{O}(T^2)$, $\mu \rightarrow \epsilon_F$, so
+\begin{equation}
+	\delta\mu(\rho,T) = -\frac{\pi^2}{6\beta} \frac{m}{\hbar^2 (3\pi^2 \rho)^{2/3}}.
+\end{equation}
 
 \printBib
 

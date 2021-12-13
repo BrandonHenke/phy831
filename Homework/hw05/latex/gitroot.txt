@@ -1,1 +1,1 @@
-\newcommand{\gitroot}{/home/bhenke/Documents/Courses/phy831}
+\newcommand{\gitroot}{/home/bhenke/Documenti/Courses/phy831}
