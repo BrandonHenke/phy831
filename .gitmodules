@@ -1,0 +1,4 @@
+[submodule "latexTemplate"]
+	path = latexTemplate
+	url = https://gitlab.com/BrandonHenke/latexTemplate.git
+	branch = main
